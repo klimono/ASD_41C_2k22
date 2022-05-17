@@ -3,10 +3,10 @@ import sys
 import time
 sys.setrecursionlimit(50000)
 
-#tablica liczb losowych
+#tablica liczb losowych, te same wartosci zostana wykorzystane do kolejnych tablic posortowanych
 randArray = []
 for x in range(0, 500000):
-    randArray.append(random.randint(0, 500))
+    randArray.append(random.randint(0, 100))
 #kopia zapasowa
 randArrayCopy = randArray
 #tablica liczb posortowanych
@@ -98,7 +98,7 @@ print(quicksort(randArray))
 randArray = randArrayCopy
 
 ####################################################################
-#                            merge-sort                            #
+#                            mergesort                             #
 ####################################################################
 
 def mergesort(tablica):
