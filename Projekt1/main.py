@@ -5,8 +5,8 @@ sys.setrecursionlimit(50000)
 
 #tablica liczb losowych, te same wartosci zostana wykorzystane do kolejnych tablic posortowanych
 randArray = []
-for x in range(0, 500000):
-    randArray.append(random.randint(0, 100))
+for x in range(0, 300000):
+    randArray.append(random.randint(0, 50))
 #kopia zapasowa
 randArrayCopy = randArray
 #tablica liczb posortowanych
@@ -15,6 +15,45 @@ sortUP = sorted(randArray)
 sortDOWN = sortUP[::-1]
 #kopia zapasowa
 sortDOWNcopy = sortDOWN
+
+####################################################################
+#                            quicksort                             #
+####################################################################
+
+def partition(tablica, p, r):
+    x = tablica[r]
+    i = p - 1
+    j = p
+    for j in range(p, r):
+        if tablica[j] <= x:
+            i += 1
+            tablica[j], tablica[i] = tablica[i], tablica[j]
+    tablica[i + 1], tablica[r] = tablica[r], tablica[i + 1]
+    return i + 1
+
+def quick(tablica, p, r):
+    if p < r:
+        q = partition(tablica, p, r)
+        quick(tablica, p, q - 1)
+        quick(tablica, q + 1, r)
+
+def quicksort(tablica):
+    start_time = time.time()
+    quick(tablica, 0, len(tablica) - 1)
+    return time.time()-start_time
+
+##############################POMIAR################################
+
+print("quicksort sortUP: ERROR")
+#print(quicksort(sortUP))
+
+print("quicksort sortDown: ERROR")
+#print(quicksort(sortDOWN))
+sortDOWN = sortDOWNcopy
+
+print("quicksort random: ")
+print(quicksort(randArray))
+randArray = randArrayCopy
 
 ####################################################################
 #                            heapsort                              #
@@ -56,45 +95,6 @@ sortDOWN = sortDOWNcopy
 
 print("heapsort random: ")
 print(heapsort(randArray))
-randArray = randArrayCopy
-
-####################################################################
-#                            quicksort                             #
-####################################################################
-
-def partition(tablica, p, r):
-    x = tablica[r]
-    i = p - 1
-    j = p
-    for j in range(p, r):
-        if tablica[j] <= x:
-            i += 1
-            tablica[j], tablica[i] = tablica[i], tablica[j]
-    tablica[i + 1], tablica[r] = tablica[r], tablica[i + 1]
-    return i + 1
-
-def quick(tablica, p, r):
-    if p < r:
-        q = partition(tablica, p, r)
-        quick(tablica, p, q - 1)
-        quick(tablica, q + 1, r)
-
-def quicksort(tablica):
-    start_time = time.time()
-    quick(tablica, 0, len(tablica) - 1)
-    return time.time()-start_time
-
-##############################POMIAR################################
-
-print("quicksort sortUP: ")
-print(quicksort(sortUP))
-
-print("quicksort sortDown: ")
-print(quicksort(sortDOWN))
-sortDOWN = sortDOWNcopy
-
-print("quicksort random: ")
-print(quicksort(randArray))
 randArray = randArrayCopy
 
 ####################################################################
