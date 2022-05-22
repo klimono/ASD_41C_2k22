@@ -8,13 +8,13 @@ randArray = []
 for x in range(0, 300000):
     randArray.append(random.randint(0, 50))
 #kopia zapasowa
-randArrayCopy = randArray
+randArrayCopy = randArray[:]
 #tablica liczb posortowanych
 sortUP = sorted(randArray)
 #tablica liczb posortowanych odwrotnie
 sortDOWN = sortUP[::-1]
 #kopia zapasowa
-sortDOWNcopy = sortDOWN
+sortDOWNcopy = sortDOWN[:]
 
 ####################################################################
 #                            quicksort                             #
@@ -45,15 +45,15 @@ def quicksort(tablica):
 ##############################POMIAR################################
 
 print("quicksort sortUP: ERROR")
-#print(quicksort(sortUP))
+#print(quicksort(sortUP))    PROGRAM WYRZUCA BŁĄD, POMIAR PRZEPROWADZONO OSOBNO W DRUGIM PLIKU
 
 print("quicksort sortDown: ERROR")
-#print(quicksort(sortDOWN))
-sortDOWN = sortDOWNcopy
+#print(quicksort(sortDOWN))    PROGRAM WYRZUCA BŁĄD, POMIAR PRZEPROWADZONO OSOBNO W DRUGIM PLIKU
+sortDOWN = sortDOWNcopy[:]
 
 print("quicksort random: ")
 print(quicksort(randArray))
-randArray = randArrayCopy
+randArray = randArrayCopy[:]
 
 ####################################################################
 #                            heapsort                              #
@@ -91,11 +91,11 @@ print(heapsort(sortUP))
 
 print("heapsort sortDown: ")
 print(heapsort(sortDOWN))
-sortDOWN = sortDOWNcopy
+sortDOWN = sortDOWNcopy[:]
 
 print("heapsort random: ")
 print(heapsort(randArray))
-randArray = randArrayCopy
+randArray = randArrayCopy[:]
 
 ####################################################################
 #                            mergesort                             #
@@ -131,7 +131,7 @@ def mergesort(tablica):
             tablica[k] = praw[j]
             j += 1
             k += 1
-        return time.time()-start_time
+    return time.time()-start_time
 
 ##############################POMIAR################################
 
@@ -140,11 +140,11 @@ print(mergesort(sortUP))
 
 print("mergesort sortDown: ")
 print(mergesort(sortDOWN))
-sortDOWN = sortDOWNcopy
+sortDOWN = sortDOWNcopy[:]
 
 print("mergesort random: ")
 print(mergesort(randArray))
-randArray = randArrayCopy
+randArray = randArrayCopy[:]
 
 ####################################################################
 #                            bubble sort                           #
@@ -165,8 +165,8 @@ print(bubblesort(sortUP))
 
 print("bubblesort sortDown: ")
 print(bubblesort(sortDOWN))
-sortDOWN = sortDOWNcopy
+sortDOWN = sortDOWNcopy[:]
 
 print("bubblesort random: ")
 print(bubblesort(randArray))
-randArray = randArrayCopy
+randArray = randArrayCopy[:]
