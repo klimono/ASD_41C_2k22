@@ -38,21 +38,25 @@ def quick(tablica, p, r):
         quick(tablica, q + 1, r)
 
 def quicksort(tablica):
-    start_time = time.time()
     quick(tablica, 0, len(tablica) - 1)
-    return time.time()-start_time
 
 ##############################POMIAR################################
 
-print("quicksort sortUP: ERROR")
-#print(quicksort(sortUP))    PROGRAM WYRZUCA BŁĄD, POMIAR PRZEPROWADZONO OSOBNO W DRUGIM PLIKU
+print("quicksort sortUP:")
+start_time = time.time()
+quicksort(sortUP)   #PROGRAM WYRZUCA ERROR, POMIAR PRZEPROWADZONO OSOBNO W DRUGIM PLIKU
+print(time.time()-start_time)
 
-print("quicksort sortDown: ERROR")
-#print(quicksort(sortDOWN))    PROGRAM WYRZUCA BŁĄD, POMIAR PRZEPROWADZONO OSOBNO W DRUGIM PLIKU
+print("quicksort sortDown:")
+start_time = time.time()
+quicksort(sortDOWN)    #PROGRAM WYRZUCA ERROR, POMIAR PRZEPROWADZONO OSOBNO W DRUGIM PLIKU
+print(time.time()-start_time)
 sortDOWN = sortDOWNcopy[:]
 
 print("quicksort random: ")
-print(quicksort(randArray))
+start_time = time.time()
+quicksort(randArray)
+print(time.time()-start_time)
 randArray = randArrayCopy[:]
 
 ####################################################################
@@ -87,14 +91,20 @@ def heapsort(tablica):
 ##############################POMIAR################################
 
 print("heapsort sortUP: ")
-print(heapsort(sortUP))
+start_time = time.time()
+heapsort(sortUP)
+print(time.time()-start_time)
 
 print("heapsort sortDown: ")
-print(heapsort(sortDOWN))
+start_time = time.time()
+heapsort(sortDOWN)
+print(time.time()-start_time)
 sortDOWN = sortDOWNcopy[:]
 
 print("heapsort random: ")
-print(heapsort(randArray))
+start_time = time.time()
+heapsort(randArray)
+print(time.time()-start_time)
 randArray = randArrayCopy[:]
 
 ####################################################################
@@ -136,14 +146,20 @@ def mergesort(tablica):
 ##############################POMIAR################################
 
 print("mergesort sortUP: ")
-print(mergesort(sortUP))
+start_time = time.time()
+mergesort(sortUP)
+print(time.time()-start_time)
 
 print("mergesort sortDown: ")
-print(mergesort(sortDOWN))
+start_time = time.time()
+mergesort(sortDOWN)
+print(time.time()-start_time)
 sortDOWN = sortDOWNcopy[:]
 
 print("mergesort random: ")
-print(mergesort(randArray))
+start_time = time.time()
+mergesort(randArray)
+print(time.time()-start_time)
 randArray = randArrayCopy[:]
 
 ####################################################################
@@ -161,12 +177,18 @@ def bubblesort(tablica):
 ##############################POMIAR################################
 
 print("bubblesort sortUP: ")
-print(bubblesort(sortUP))
+start_time = time.time()
+bubblesort(sortUP)
+print(time.time()-start_time)
 
 print("bubblesort sortDown: ")
-print(bubblesort(sortDOWN))
+start_time = time.time()
+bubblesort(sortDOWN)
+print(time.time()-start_time)
 sortDOWN = sortDOWNcopy[:]
 
 print("bubblesort random: ")
-print(bubblesort(randArray))
+start_time = time.time()
+bubblesort(randArray)
+print(time.time()-start_time)
 randArray = randArrayCopy[:]
